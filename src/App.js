@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './pages/Home'
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+// import DashBoard from './components/DashBoard'
+// import * as ROUTES from './Routes'
+// import NewPatient from './components/Forms/NewPatient';
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <CssBaseline />
+      <Switch>
+        <Redirect exact from="/home" to="/" />
+        <Route exact path="/:page?" component={props => <Home {...props} /> } />
+        {/* <Route exact path="/dashboard" component={<DashBoard /> } /> */}
+        {/* <Route exact path={ROUTES.ADDNEWPATIENT} component={<NewPatient /> } /> */}
+      </Switch>
+    </Router>
   );
 }
 

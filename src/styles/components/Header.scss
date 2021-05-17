@@ -1,0 +1,84 @@
+.header {
+	height: 80px;
+	padding: 10px 40px;
+	display: flex;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+	background-color: #3d4977;
+    width: 100%;
+}
+
+.header__left{
+    display: none;
+    align-items: center;
+    width: 100%;
+}
+
+.header__right {
+	display: flex;
+	align-items: center;
+	width: 100%;
+    & > button {
+		display: none;
+		color: #fff;
+	}
+}
+
+.header__rightIcons {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+    color: #ffffff;
+    &>.MuiSvgIcon-root{
+        margin-right: 15px;
+    }  
+}
+
+.header__avatarMenu {
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	width: 120px;
+	& > div {
+		text-align: center;
+	}
+	& > span {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		margin: 5px 0;
+	}
+}
+
+.header__avatarMenuItem {
+	padding: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.header__avatarMenuItem2 {
+	padding: 5px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+@media screen and (max-width: 1200px) {
+	.header__right {
+        & > button {
+            display: flex;
+            color: #fff;
+            margin-left: auto;
+        }
+    }
+
+    .header__rightIcons {
+        display: none;
+    }
+
+    .header__left{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+}
