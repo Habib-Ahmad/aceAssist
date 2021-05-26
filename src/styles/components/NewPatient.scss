@@ -1,88 +1,106 @@
 .newPatient {
-	padding: 35px 40px;
-	background: #ffffff;
-	box-shadow: -10px 20px 74px rgba(76, 87, 130, 0.2);
-	border-radius: 5px;
-	display: flex;
-	flex-direction: column;
-	margin-left: 5vw;
-	margin-right: 5vw;
-	& > span {
-		// border-bottom: 1px dashed #acacac;
-		margin: 40px 0;
-	}
-	& > h3 {
-		font-family: 'Nunito';
-		font-weight: 800;
-		margin-top: 60px;
-	}
-	& > p {
-		font-family: 'Nunito';
-		font-weight: 800;
-	}
+  padding: 35px 40px;
+  background: #ffffff;
+  box-shadow: -10px 20px 74px rgba(76, 87, 130, 0.2);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  & > span {
+    // border-bottom: 1px dashed #acacac;
+    margin: 40px 0;
+  }
+  & > h3 {
+    font-family: "Nunito";
+    font-weight: 800;
+    margin-top: 60px;
+  }
+  & > p {
+    font-family: "Nunito";
+    font-weight: 800;
+  }
 }
 
 .newPatient__header {
-	display: block;
-	margin: 0 auto;
-	font-size: 22px;
-	font-weight: 600;
-	font-family: 'Nunito';
+  display: block;
+  margin: 0 auto;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: "Nunito";
 }
 
 .newPatient__header2 {
-	font-family: 'Nunito';
-	display: block;
-	margin: 0 auto;
-	font-size: 20px;
-	font-weight: 800;
+  font-family: "Nunito";
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .newPatient__row {
-	display: flex;
-	width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .newPatient__col {
-	width: 100%;
-	// padding: 10px 10px 10px 0;
+  width: 100%;
+  // padding: 10px 10px 10px 0;
 }
 
 .leftBorder {
-	border-left: 1px dashed #acacac;
+  border-left: 1px dashed #acacac;
 }
 
 .newPatient__riskScore {
-	height: 90px;
-	width: 70%;
-	& > div {
-		width: 50%;
-		margin: 0;
-		margin-left: 30px;
-	}
-	& > p {
-		font-family: 'Nunito';
-		opacity: 0.8;
-		margin-left: 20px;
-		margin-top: 5px;
-	}
+  height: 90px;
+  width: 70%;
+  & > div {
+    width: 50%;
+    margin: 0;
+    margin-left: 30px;
+  }
+  & > p {
+    font-family: "Nunito";
+    opacity: 0.8;
+    margin-left: 20px;
+    margin-top: 5px;
+  }
 }
 
 .reducedBottomMargin {
-	margin-bottom: -20px;
+  margin-bottom: -20px;
+}
+
+.custom_radio {
+  
+  .MuiFormControl-root.makeStyles-field-13 {
+    margin: 0px;
+  }
+
+  .makeStyles-field-17 {
+    margin: 0px;
+  }
+}
+
+.custom_tab {
+  margin-top: 1rem;
+  .MuiTabs-flexContainer.MuiTabs-flexContainerVertical .MuiTab-wrapper {
+    padding-left: 15px;
+  }
 }
 
 @media screen and (max-width: 832px) {
-	.newPatient__row {
-		display: block;
-	}
-	.newPatient__riskScore {
-		width: 100%;
-		& > div {
-			width: 100%;
-		}
-		& > p {
-			margin-left: 0px;
-		}
-	}
+  .newPatient__row {
+    display: block;
+  }
+  .newPatient__riskScore {
+    width: 100%;
+    & > div {
+      width: 100%;
+    }
+    & > p {
+      margin-left: 0px;
+    }
+  }
 }

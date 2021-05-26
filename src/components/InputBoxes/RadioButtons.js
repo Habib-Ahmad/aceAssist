@@ -59,8 +59,8 @@ const RadioButtons = ({ label, name, cb, value, option1, option2, option3, optio
             onChange={handleChange}
             style={{justifyContent:'left', marginLeft:'10px'}}
         >
-            {option1 && <FormControlLabel classes={{label: classes.radioLabel}} value={option1} control={<Radio classes={{root: classes.button}} />} label={option1} />}
-            {option2 && <FormControlLabel classes={{label: classes.radioLabel}} value={option2} control={<Radio classes={{root: classes.button}} />} label={option2} />}
+            {option1 && <FormControlLabel classes={{label: classes.radioLabel}} value={option1 === "Y" ? true : option1} control={<Radio classes={{root: classes.button}} />} label={option1} />}
+            {option2 && <FormControlLabel classes={{label: classes.radioLabel}} value={option2 === "N" ? false : option2} control={<Radio classes={{root: classes.button}} />} label={option2} />}
             {option3 && <FormControlLabel classes={{label: classes.radioLabel}} value={option3} control={<Radio classes={{root: classes.button}} />} label={option3} />}
             {option4 && <FormControlLabel classes={{label: classes.radioLabel}} value={option4} control={<Radio classes={{root: classes.button}} />} label={option4} />}
             {option5 && <FormControlLabel classes={{label: classes.radioLabel}} value={option5} control={<Radio classes={{root: classes.button}} />} label={option5} />}

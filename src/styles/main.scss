@@ -4,6 +4,10 @@
 @use './components/MainContent.scss';
 @use './components/NewPatient.scss';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   margin: 0;
   box-sizing: border-box;
@@ -23,4 +27,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
-  
