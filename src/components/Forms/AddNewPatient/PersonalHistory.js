@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "@material-ui/core";
 import Toastr from "toastr";
 import api from "../../../utils/api";
 import {
@@ -32,6 +31,8 @@ function PersonalHistory() {
     household_family_member_enrolled: null,
     anyone_knows_client_status: null,
     education_level: "Started primary",
+    num_of_own_children_less_than_five_years: 0,
+    num_of_wives: 0,
   });
 
   const [tests, setTests] = useState({
@@ -113,7 +114,7 @@ function PersonalHistory() {
     relationship: "",
     parents_are_married: null,
     parents_live_together: null,
-    num_of_siblings: null,
+    num_of_siblings: 0,
   });
 
   const submit = async (e) => {
@@ -136,12 +137,11 @@ function PersonalHistory() {
     try {
       await api.post("/personal-history", data);
     } catch (error) {
-      Toastr.error("Invalid input");
-      console.log(error.response);
+      Toastr.error("Invalid input. Most fields are required!!!!!");
     }
   };
   return (
-    <Layout title="Personal History">
+    <Layout onSubmit={submit} title="Personal History">
       <div className="newPatient__row">
         <RegularInputBox
           cb={(e) => setState({ ...state, fullname: e.target.value })}
@@ -179,6 +179,31 @@ function PersonalHistory() {
           value={state.date_of_birth}
           name="dateOfBirth"
           label="Date of Birth"
+        />
+      </div>
+      <div className="flex">
+        <NumberInputBox
+          name="numberOfChildren"
+          label="No. of Own Children < 5 years"
+          value={state.num_of_own_children_less_than_five_years}
+          cb={(e) =>
+            setState({
+              ...state,
+              num_of_own_children_less_than_five_years: e.target.value,
+            })
+          }
+        />
+
+        <NumberInputBox
+          value={state.num_of_wives}
+          cb={(e) =>
+            setState({
+              ...state,
+              num_of_wives: e.target.value,
+            })
+          }
+          name="numberOfWives"
+          label="No. of Wives/Co-wives"
         />
       </div>
       <span></span>
@@ -1123,9 +1148,6 @@ function PersonalHistory() {
           option2="N"
         />
       </div>
-      <Button onClick={submit} variant="contained" color="primary">
-        Submit
-      </Button>
     </Layout>
   );
 }
