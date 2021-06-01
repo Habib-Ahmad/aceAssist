@@ -6,6 +6,8 @@ export default function Layout({ title, children, onSubmit }) {
     <div className="newPatient">
       <div className="newPatient__header">{title}</div>
       {children}
+      <br />
+      <br />
       <Button onClick={onSubmit} variant="contained" color="primary">
         Submit
       </Button>

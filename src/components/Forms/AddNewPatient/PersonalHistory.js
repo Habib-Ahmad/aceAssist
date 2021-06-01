@@ -136,6 +136,7 @@ function PersonalHistory() {
 
     try {
       await api.post("/personal-history", data);
+      Toastr.success("Success");
     } catch (error) {
       Toastr.error("Invalid input. Most fields are required!!!!!");
     }
@@ -842,7 +843,7 @@ function PersonalHistory() {
         If client is married or have children, provide the following information
         on the status of the underlisted family members:
       </h3>
-      <div className="grid grid-cols-6 gap-y-4 items-center custom_radio mb-10">
+      <div className="grid grid-cols-6 gap-y-4 items-center custom_radio">
         <div></div>
         <div>Spouse 1</div>
         <div>Last child</div>

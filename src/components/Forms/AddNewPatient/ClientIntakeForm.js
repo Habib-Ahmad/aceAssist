@@ -99,6 +99,7 @@ function ClientIntakeForm() {
 
     try {
       await api.post("/client-intake", data);
+      Toastr.success("Success");
     } catch (error) {
       Toastr.error("Invalid input. Most fields are required!");
     }
@@ -540,8 +541,6 @@ function ClientIntakeForm() {
           setState({ ...state, hepatitis_c_test_results: e.target.value })
         }
       />
-      <br />
-      <br />
     </Layout>
   );
 }

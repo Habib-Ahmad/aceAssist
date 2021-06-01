@@ -4,7 +4,7 @@ let urls = {
   test: "http://localhost:4040/api/",
 };
 
-const fetcher = Axios.create({
+const api = Axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -23,10 +23,10 @@ const fetcher = Axios.create({
 
 const token = localStorage.getItem("token");
 
-fetcher.interceptors.request.use(function (config) {
+api.interceptors.request.use(function (config) {
   config.headers.Authorization = `Bearer ${token}`;
 
   return config;
 });
 
-export default fetcher;
+export default api;
