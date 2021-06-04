@@ -1,4 +1,5 @@
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -9,7 +10,7 @@ import {
 // import * as ROUTES from './Routes'
 // import NewPatient from './components/Forms/NewPatient';
 import CssBaseline from "@material-ui/core/CssBaseline";
-
+import useAuth from "./hooks/useAuth";
 import Toast from "toastr";
 
 Toast.options = {
@@ -30,6 +31,9 @@ Toast.options = {
 };
 
 function App() {
+  const { adminAuth } = useAuth();
+  console.log(adminAuth);
+
   return (
     <Router>
       <CssBaseline />
@@ -38,7 +42,9 @@ function App() {
         <Route
           exact
           path="/:page?"
-          component={(props) => <Home {...props} />}
+          component={(props) =>
+            adminAuth ? <Home {...props} /> : <Login {...props} />
+          }
         />
         {/* <Route exact path="/dashboard" component={<DashBoard /> } /> */}
         {/* <Route exact path={ROUTES.ADDNEWPATIENT} component={<NewPatient /> } /> */}

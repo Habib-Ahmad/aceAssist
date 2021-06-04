@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 	}
 })
 
-const RegularInputBox = ({ label, name, value, cb }) => {
+const RegularInputBox = ({ label, name, value, cb, type="" }) => {
 	const classes = useStyles()
 
 	function handleInputChange(e) {
@@ -54,6 +54,7 @@ const RegularInputBox = ({ label, name, value, cb }) => {
             label={label}
             name={name}
             value={value}
+			type={type}
             onChange={handleInputChange}
             fullWidth
             inputProps={{

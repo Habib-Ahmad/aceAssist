@@ -9,7 +9,7 @@ const Home = (props) => {
     0: "client-intake-form",
     1: "personal-history",
     2: "request-form",
-    3: "referral"
+    3: "referral",
   };
 
   const indexToTabName = {
@@ -17,16 +17,16 @@ const Home = (props) => {
     "client-intake-form": 0,
     "personal-history": 1,
     "request-form": 2,
-    "referral": 3
+    referral: 3,
   };
 
   const [selectedTab, setSelectedTab] = useState(
     indexToTabName[props.match.params.page]
   );
 
-  const handleChange = (_event, newValue) => {
-    props.history.push(`/${tabNameToIndex[newValue]}`);
-    setSelectedTab(newValue);
+  const handleChange = (_event, _newValue) => {
+    // props.history.push(`/${tabNameToIndex[newValue]}`);
+    // setSelectedTab(newValue);
   };
 
   return (

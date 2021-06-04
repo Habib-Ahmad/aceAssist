@@ -20,7 +20,7 @@ function PersonalHistory() {
     date_of_birth: "",
     fullname: "",
     state_id: null,
-    hospital_number: "",
+    // hospital_number: "",
     sex: "",
     occupation_status: "",
     marital_status: "",
@@ -152,12 +152,12 @@ function PersonalHistory() {
         />
       </div>
       <div className="newPatient__row">
-        <RegularInputBox
+        {/* <RegularInputBox
           cb={(e) => setState({ ...state, hospital_number: e.target.value })}
           value={state.hospital_number}
           name="hospitalNumber"
           label="Hospital(Unit) No."
-        />
+        /> */}
 
         <NumberInputBox
           name="name"

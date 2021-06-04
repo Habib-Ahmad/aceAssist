@@ -9,13 +9,13 @@ export const SideNavData = [
     subNav: [
       {
         id: 0,
-        title: "Client Intake Form",
-        path: "/client-intake-form",
+        title: "Personal History",
+        path: "/personal-history",
       },
       {
         id: 1,
-        title: "Personal History",
-        path: "/personal-history",
+        title: "Client Intake Form",
+        path: "/client-intake-form",
       },
     ],
   },
