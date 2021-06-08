@@ -3,7 +3,7 @@ import { logout } from "./localstorage";
 import { ADMIN_TOKEN, CLIENT_TOKEN } from "./token";
 
 let urls = {
-  test: "http://localhost:4040/api/",
+  test: "http://aceassist-backend.herokuapp.com/api/",
 };
 
 const api = Axios.create({
