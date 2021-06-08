@@ -1,19 +1,23 @@
 import { Button } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Toastr from "toastr";
 import api from "../utils/api";
 import { CLIENT_STEP } from "../utils/localstorage";
 import { CLIENT_TOKEN } from "../utils/token";
 import { DatePicker, RegularInputBox } from "./InputBoxes/Index";
 import routes from "../utils/routes";
-import { useHistory } from "react-router";
 
 export default function Onboard() {
   const [state, setState] = useState({
     enrollment_number: "",
     date_of_birth: "",
   });
-  const history = useHistory()
+  useEffect(() => {
+    const step = localStorage.getItem(CLIENT_STEP);
+    if (step) {
+      window.location.replace(routes[step]);
+    }
+  }, []);
   const login = async () => {
     try {
       const { data } = await api.post("/personal-history/login", state);
@@ -50,10 +54,11 @@ export default function Onboard() {
             Login
           </Button>
         </div>
-
-        <Button
-          onClick={() => window.location.replace("/personal-history")}
-        ></Button>
+        <div className="w-full mt-4 flex justify-center">
+          <Button onClick={() => window.location.replace("/personal-history")}>
+            New Client
+          </Button>
+        </div>
       </div>
     </div>
   );

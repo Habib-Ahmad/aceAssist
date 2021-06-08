@@ -11,6 +11,7 @@ import {
 import Layout from "../layout";
 import api from "../../../utils/api";
 import questionsAndAnswers from "../../../data/client-intake";
+import routes from "../../../utils/routes";
 
 function ClientIntakeForm() {
   const [state, setState] = useState({
@@ -91,16 +92,18 @@ function ClientIntakeForm() {
   });
 
   const submit = async () => {
-    const data = {
+    const formData = {
       ...state,
       pre_test_information: preTest,
       post_test_counselling: postTest,
     };
 
     try {
-      await api.post("/client-intake", data);
+      const { data } = await api.post("/client-intake", formData);
+      window.location.replace(routes[data.step]);
       Toastr.success("Success");
     } catch (error) {
+      console.log(error);
       Toastr.error("Invalid input. Most fields are required!");
     }
   };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Toastr from "toastr";
 import api from "../../../utils/api";
+// import routes from "../../../utils/routes";
 import { RegularInputBox } from "../../InputBoxes/Index";
 import Layout from "../layout";
 
@@ -24,10 +25,12 @@ export default function ReferralForm() {
   });
   const submit = async () => {
     try {
+      // const { data } = await api.post("/referral", state);
       await api.post("/referral", state);
-      Toastr.success("Success")
+      // window.location.replace(routes[data.step]);
+      Toastr.success("Success");
     } catch (error) {
-      Toastr.error("All fields are required!")
+      Toastr.error("All fields are required!");
     }
   };
   return (
