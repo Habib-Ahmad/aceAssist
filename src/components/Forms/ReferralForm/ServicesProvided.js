@@ -22,6 +22,13 @@ export default function ServicesProvided() {
         <NumberInputBox name="age" label="Age" />
         <Selection name="sex" label="Sex" option1="Male" option2="Female" />
       </div>
+
+      <div className="flex">
+        <RegularInputBox name="name" label="Client Name" />
+        <RegularInputBox name="name" label="Client Name" />
+        <RegularInputBox name="name" label="Client Name" />
+        <RegularInputBox name="name" label="Client Name" />
+      </div>
     </Layout>
   );
 }

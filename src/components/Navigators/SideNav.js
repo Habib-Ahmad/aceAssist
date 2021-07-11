@@ -3,9 +3,11 @@ import { Tabs, Tab, Button } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import { SideNavData } from "./SideNavData";
+import useAuth from "../../hooks/useAuth";
 
 const SideNav = (props) => {
   const [navClass, setNavClass] = useState(SideNavData);
+  const { clientAuth } = useAuth();
 
   function ExpandMore(e, idx) {
     if (navClass[idx].class === "hide") {
@@ -30,7 +32,9 @@ const SideNav = (props) => {
         <div className="sideNav__menuText">Navigation Menu</div>
         <ul className="sideNav__menuItems">
           <li className="sideNav__menuItem">
-            <Button>Dashboard</Button>
+            <Button onClick={() => !clientAuth && window.location.replace("/")}>
+              Dashboard
+            </Button>
           </li>
           {SideNavData.map((data, idx) => (
             <li key={idx} className="sideNav__menuItem">
