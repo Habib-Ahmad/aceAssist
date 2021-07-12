@@ -2,7 +2,7 @@
   "name": "ace-assist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mjabubakar.github.io/aceAssist",
+  "homepage": "https://Habib_Ahmad.github.io/aceAssist",
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@material-ui/core": "^4.11.4",
@@ -27,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "firebase build",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
