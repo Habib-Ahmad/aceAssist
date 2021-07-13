@@ -28,7 +28,7 @@ Toast.options = {
   hideEasing: "linear",
   showMethod: "fadeIn",
   hideMethod: "fadeOut",
-};
+}; 
 
 function App() {
   const { adminAuth } = useAuth();

@@ -32,6 +32,10 @@
 	display: flex;
 	align-items: center;
     color: #ffffff;
+
+	button:focus {
+		outline: none;
+	}
     &>.MuiSvgIcon-root{
         margin-right: 15px;
     }  

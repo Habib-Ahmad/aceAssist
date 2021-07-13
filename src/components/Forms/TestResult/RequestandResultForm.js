@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Toastr from "toastr";
 import api from "../../../utils/api";
+import { CLIENT_STEP } from "../../../utils/localstorage";
+import routes from "../../../utils/routes";
 import {
   RegularInputBox,
   DatePicker,
   RadioButtons,
-  NumberInputBox,
 } from "../../InputBoxes/Index";
 import Layout from "../layout";
 
@@ -42,7 +43,9 @@ export default function RequestFrom() {
 
   const submit = async () => {
     try {
-      api.post("/request-result", state);
+      const { data } = await api.post("/request-result", state);
+      localStorage.setItem(CLIENT_STEP, data.step);
+      window.location.replace(routes[data.step]);
       Toastr.success("Success");
     } catch (error) {
       Toastr.error("Invalid input. All inputs are required!");
@@ -197,7 +200,10 @@ export default function RequestFrom() {
           cb={(e) =>
             setState({
               ...state,
-              requested_by: { ...state.requested_by, name: e.target.value },
+              requested_by: {
+                ...state.requested_by,
+                name: e.target.value.toUpperCase(),
+              },
             })
           }
           name="name"
@@ -234,7 +240,10 @@ export default function RequestFrom() {
           cb={(e) =>
             setState({
               ...state,
-              tested_by: { ...state.tested_by, name: e.target.value },
+              tested_by: {
+                ...state.tested_by,
+                name: e.target.value.toUpperCase(),
+              },
             })
           }
           name="name"
@@ -268,7 +277,10 @@ export default function RequestFrom() {
           cb={(e) =>
             setState({
               ...state,
-              checked_by: { ...state.checked_by, name: e.target.value },
+              checked_by: {
+                ...state.checked_by,
+                name: e.target.value.toUpperCase(),
+              },
             })
           }
           name="name"

@@ -8,6 +8,7 @@ import Onboard from "./Onboard";
 // import DashBoard from './DashBoard'
 
 const MainContent = (props) => {
+  const pathname = window.location.pathname;
   return (
     <div className="mainContent">
       {/* { props.selectedTab === 100 && <DashBoard /> } */}
@@ -16,7 +17,7 @@ const MainContent = (props) => {
       {props.selectedTab === 2 && <RequestandResultForm />}
       {props.selectedTab === 3 && <ReferralForm />}
       {props.selectedTab === 4 && <ServicesProvided />}
-      {!props.selectedTab && <Onboard />}
+      {pathname === "/" && <Onboard />}
     </div>
   );
 };

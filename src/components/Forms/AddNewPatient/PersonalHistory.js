@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Toastr from "toastr";
 import api from "../../../utils/api";
+import routes from "../../../utils/routes";
 import {
   RegularInputBox,
   NumberInputBox,
@@ -119,7 +120,7 @@ function PersonalHistory() {
 
   const submit = async (e) => {
     e.preventDefault();
-    const data = {
+    const formData = {
       ...state,
       address,
       arrival_time_from_home: `${time.hours}hrs:${time.minutes}mins`,
@@ -135,7 +136,8 @@ function PersonalHistory() {
     };
 
     try {
-      await api.post("/personal-history", data);
+      const { data } = await api.post("/personal-history", formData);
+      window.location.replace(routes[data.step]);
       Toastr.success("Success");
     } catch (error) {
       Toastr.error("Invalid input. Most fields are required!!!!!");
@@ -152,13 +154,6 @@ function PersonalHistory() {
         />
       </div>
       <div className="newPatient__row">
-        {/* <RegularInputBox
-          cb={(e) => setState({ ...state, hospital_number: e.target.value })}
-          value={state.hospital_number}
-          name="hospitalNumber"
-          label="Hospital(Unit) No."
-        /> */}
-
         <NumberInputBox
           name="name"
           cb={(e) => setState({ ...state, state_id: parseInt(e.target.value) })}
