@@ -4,7 +4,7 @@ import { patientAuth } from './Navigators/Header';
 
 function DashBoard() {
 	const gotoDashboard = () => {
-		if (!patientAuth()) window.location.replace('/');
+		if (!patientAuth()) window.location.replace('/'); 
 	};
 	return (
 		<li className="sideNav__menuItem">
