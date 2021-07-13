@@ -1,11 +1,16 @@
-import React from 'react'
+import { Button } from '@material-ui/core';
+import React from 'react';
+import { patientAuth } from './Navigators/Header';
 
 function DashBoard() {
-    return (
-        <div className="dashboard">
-            <div style={{fontSize:"26px", fontWeight:700}}>Dashboard</div>
-        </div>
-    )
+	const gotoDashboard = () => {
+		if (!patientAuth()) window.location.replace('/');
+	};
+	return (
+		<li className="sideNav__menuItem">
+			<Button onClick={gotoDashboard}>Dashboard</Button>
+		</li>
+	);
 }
 
-export default DashBoard
+export default DashBoard;

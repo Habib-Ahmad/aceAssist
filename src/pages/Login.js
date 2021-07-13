@@ -4,7 +4,7 @@ import Toastr from "toastr";
 import RegularInputBox from "../components/InputBoxes/RegularInputBox";
 import api from "../utils/api";
 import { ADMIN_TOKEN } from "../utils/token";
-import { ADMIN_ROLE } from "../utils/localstorage";
+import { USER_DATA } from "../utils/localstorage";
 
 export default function Login() {
   const [state, setState] = useState({
@@ -16,7 +16,7 @@ export default function Login() {
     try {
       const { data } = await api.post("/admin/login", state);
       localStorage.setItem(ADMIN_TOKEN, data.token);
-      localStorage.setItem(ADMIN_ROLE, data.role);
+      localStorage.setItem(USER_DATA, JSON.stringify(data.userData));
       Toastr.success("Success");
       window.location.replace("/home");
     } catch (error) {

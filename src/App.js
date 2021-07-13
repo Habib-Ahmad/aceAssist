@@ -36,7 +36,7 @@ function App() {
 
   return (
     <Router>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Switch>
         <Redirect exact from="/home" to="/" />
         <Route
